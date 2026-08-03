@@ -1,0 +1,11 @@
+[workspace]
+authors = ["Benjamin Szeghy <benjamin.szeghy@berkeley.edu>"]
+channels = ["conda-forge"]
+name = "proj-codes"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+pyproj = ">=3.7.2,<4"
