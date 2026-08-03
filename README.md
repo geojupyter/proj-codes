@@ -5,3 +5,5 @@ proj-codes is a javascript package that provides a list of authority-defined coo
 
 [!CAUTION]
 Using negative indexing is not supported, and may not be forward compatible.
+
+Explore avaliable CRS's [here](proj-codes.csv).

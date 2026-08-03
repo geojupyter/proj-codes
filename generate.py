@@ -2,6 +2,7 @@ from pyproj import CRS
 from pyproj.database import query_crs_info
 from pyproj.exceptions import CRSError
 import json
+import csv
 
 crs_list = query_crs_info(
     auth_name="EPSG",
@@ -24,3 +25,9 @@ for crs in crs_list:
 
 with open("proj-codes.json", "w") as f:
     json.dump(crs_dict, f)
+
+with open("proj-codes.csv", "w", newline="") as f:
+    writer = csv.writer(f)
+    writer.writerow(["auth_name", "code", "name", "proj4string"])
+    for crs in crs_dict.values():
+        writer.writerow([crs["auth_name"], crs["code"], crs["name"], crs["proj4string"]])
