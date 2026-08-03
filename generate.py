@@ -28,6 +28,6 @@ with open("proj-codes.json", "w") as f:
 
 with open("proj-codes.csv", "w", newline="") as f:
     writer = csv.writer(f)
-    writer.writerow(["auth_name", "code", "name", "proj4string"])
+    writer.writerow(["auth_name", "code", "name"])
     for crs in crs_dict.values():
         writer.writerow([crs["auth_name"], crs["code"], crs["name"]])

@@ -1,4 +1,4 @@
-auth_name,code,name,proj4string
+auth_name,code,name
 EPSG,2000,Anguilla 1957 / British West Indies Grid
 EPSG,2001,Antigua 1943 / British West Indies Grid
 EPSG,2002,Dominica 1945 / British West Indies Grid
