@@ -2,8 +2,12 @@
   "name": "proj-codes",
   "version": "1.0.0",
   "description": "",
-  "main": "./proj-codes.json",
-  "exports": "./proj-codes.json",
+  "type": "module",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./proj-codes.json": "./proj-codes.json"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
