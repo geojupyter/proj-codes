@@ -12,10 +12,10 @@ crs_list = query_crs_info(
 crs_dict = {}
 for crs in crs_list:
     try:
-        proj4string = CRS.from_epsg(crs.code).to_proj4()
+        proj4string = CRS.from_authority(crs.auth_name, crs.code).to_proj4()
     except CRSError:
         continue  # skips codes that can't be used in proj4js
-    crs_dict[crs.code] = {
+    crs_dict[f"{crs.auth_name}:{crs.code}"] = {
         "auth_name": crs.auth_name,
         "code": crs.code,
         "name": crs.name,
