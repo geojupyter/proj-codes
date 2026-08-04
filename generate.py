@@ -4,30 +4,40 @@ from pyproj.exceptions import CRSError
 import json
 import csv
 
-crs_list = query_crs_info(
-    auth_name="EPSG",
-    pj_types=None,
-    allow_deprecated=False,
-)
+def build_crs_dict():
+    crs_list = query_crs_info(
+        auth_name="EPSG",
+        pj_types=None,
+        allow_deprecated=False,
+    )
 
-crs_dict = {}
-for crs in crs_list:
-    try:
-        proj4string = CRS.from_authority(crs.auth_name, crs.code).to_proj4()
-    except CRSError:
-        continue  # skips codes that can't be used in proj4js
-    crs_dict[f"{crs.auth_name}:{crs.code}"] = {
-        "auth_name": crs.auth_name,
-        "code": crs.code,
-        "name": crs.name,
-        "proj4string": proj4string
-    }
+    crs_dict = {}
+    for crs in crs_list:
+        try:
+            proj4string = CRS.from_authority(crs.auth_name, crs.code).to_proj4()
+        except CRSError:
+            continue  # skips codes that can't be used in proj4js
+        crs_dict[f"{crs.auth_name}:{crs.code}"] = {
+            "auth_name": crs.auth_name,
+            "code": crs.code,
+            "name": crs.name,
+            "proj4string": proj4string
+        }
+    return crs_dict
 
-with open("proj-codes.json", "w") as f:
-    json.dump(crs_dict, f)
 
-with open("proj-codes.csv", "w", newline="") as f:
-    writer = csv.writer(f)
-    writer.writerow(["auth_name", "code", "name"])
-    for crs in crs_dict.values():
-        writer.writerow([crs["auth_name"], crs["code"], crs["name"]])
+def main():
+    crs_dict = build_crs_dict()
+
+    with open("proj-codes.json", "w") as f:
+        json.dump(crs_dict, f)
+
+    with open("proj-codes.csv", "w", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow(["auth_name", "code", "name"])
+        for crs in crs_dict.values():
+            writer.writerow([crs["auth_name"], crs["code"], crs["name"]])
+
+
+if __name__ == "__main__":
+    main()
