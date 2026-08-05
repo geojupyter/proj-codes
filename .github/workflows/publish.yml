@@ -21,7 +21,7 @@ jobs:
       - uses: "prefix-dev/setup-pixi@v0.8.8"
 
       - run: "pixi install"
-      - run: "pixi exec pnpm ci"
-      - run: "pixi exec pnpm run build"
-      # - run: "pixi exec pnpm test"
-      - run: "pixi exec pnpm publish"
+      - run: "pixi run pnpm ci"
+      - run: "pixi run pnpm run build"
+      # - run: "pixi run pnpm test"
+      - run: "pixi run pnpm publish"
