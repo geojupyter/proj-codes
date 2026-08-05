@@ -2,6 +2,10 @@
   "name": "proj-codes",
   "version": "0.0.2",
   "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/geojupyter/proj-codes"
+  },
   "type": "module",
   "main": "./index.js",
   "exports": {
