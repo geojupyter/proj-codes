@@ -1,7 +1,8 @@
 # proj-codes
 
 ## About
-proj-codes is a javascript package that provides a list of authority-defined coordinate reference systems and their cooresponding Proj4 codes. 
+
+proj-codes is a javascript package that provides a list of authority-defined coordinate reference systems and their cooresponding Proj4 codes.
 
 Explore avaliable CRS's [here](proj-codes.csv).
 
@@ -42,6 +43,6 @@ import projCodes from 'proj-codes';
 
 proj4.defs('EPSG:3857', projCodes['EPSG:3857'].proj4string);
 
-proj4('EPSG:4326', 'EPSG:3857', [-122.2730, 37.8715]);
+proj4('EPSG:4326', 'EPSG:3857', [-122.273, 37.8715]);
 // [ -13611368.09..., 4561288.94... ]
 ```

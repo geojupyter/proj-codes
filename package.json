@@ -18,7 +18,12 @@
   ],
   "scripts": {
     "build": "python generate.py",
-    "test": "node --test"
+    "test": "node --test",
+    "prettier": "prettier --write .",
+    "prettier:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "prettier": "^3.9.6"
   },
   "keywords": [],
   "author": "",

@@ -1,10 +1,16 @@
+"""Generate proj-codes.json and proj-codes.csv."""
+
+import csv
+import json
+from pathlib import Path
+
 from pyproj import CRS
 from pyproj.database import query_crs_info
 from pyproj.exceptions import CRSError
-import json
-import csv
 
-def build_crs_dict():
+
+def build_crs_dict() -> dict[str, dict[str, str]]:
+    """Build the CRS dictionary."""
     crs_list = query_crs_info(
         auth_name="EPSG",
         pj_types=None,
@@ -21,18 +27,19 @@ def build_crs_dict():
             "auth_name": crs.auth_name,
             "code": crs.code,
             "name": crs.name,
-            "proj4string": proj4string
+            "proj4string": proj4string,
         }
     return crs_dict
 
 
-def main():
+def main() -> None:
+    """Write the CRS dictionary to disk."""
     crs_dict = build_crs_dict()
 
-    with open("proj-codes.json", "w") as f:
+    with Path("proj-codes.json").open("w") as f:
         json.dump(crs_dict, f)
 
-    with open("proj-codes.csv", "w", newline="") as f:
+    with Path("proj-codes.csv").open("w", newline="") as f:
         writer = csv.writer(f)
         writer.writerow(["auth_name", "code", "name"])
         for crs in crs_dict.values():
