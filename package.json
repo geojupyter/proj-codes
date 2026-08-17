@@ -18,7 +18,7 @@
   ],
   "scripts": {
     "build": "python generate.py",
-    "test": "node --test",
+    "test": "node --test"
   },
   "keywords": [],
   "author": "",
