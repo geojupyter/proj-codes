@@ -1,4 +1,4 @@
-name: "CI"
+name: "Test"
 
 on:
   push:
@@ -10,7 +10,7 @@ permissions: {}
 
 jobs:
   test:
-    name: "node --test"
+    name: "Javascript tests"
     runs-on: "ubuntu-latest"
     steps:
       - uses: "actions/checkout@v7"
