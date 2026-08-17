@@ -1,0 +1,6 @@
+node_modules/
+.pixi/
+pixi.lock
+pnpm-lock.yaml
+proj-codes.json
+proj-codes.csv
