@@ -1,26 +1,26 @@
-name: 'CI'
+name: "CI"
 
 on:
   push:
-    branches: 'main'
+    branches: "main"
   pull_request:
-    branches: '*'
+    branches: "*"
 
 permissions: {}
 
 jobs:
   test:
-    name: 'node --test'
-    runs-on: 'ubuntu-latest'
+    name: "node --test"
+    runs-on: "ubuntu-latest"
     steps:
-      - uses: 'actions/checkout@v7'
+      - uses: "actions/checkout@v7"
         with:
           persist-credentials: false
 
-      - uses: 'prefix-dev/setup-pixi@v0.8.8'
+      - uses: "prefix-dev/setup-pixi@v0.8.8"
 
-      - run: 'pixi install'
+      - run: "pixi install"
 
-      - run: 'pixi run pnpm run build'
+      - run: "pixi run pnpm run build"
 
-      - run: 'pixi run pnpm test'
+      - run: "pixi run pnpm test"

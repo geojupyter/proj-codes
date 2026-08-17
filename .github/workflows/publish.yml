@@ -1,27 +1,27 @@
-name: 'Publish to npmjs.com'
+name: "Publish to npmjs.com"
 
 on:
   release:
-    types: ['published']
+    types: ["published"]
 
 permissions:
-  id-token: 'write'
-  contents: 'read'
+  id-token: "write"
+  contents: "read"
 
 jobs:
   publish:
     environment:
-      name: 'npmjs'
-    runs-on: 'ubuntu-latest'
+      name: "npmjs"
+    runs-on: "ubuntu-latest"
     steps:
-      - uses: 'actions/checkout@v6'
+      - uses: "actions/checkout@v6"
         with:
           persist-credentials: false
 
-      - uses: 'prefix-dev/setup-pixi@v0.8.8'
+      - uses: "prefix-dev/setup-pixi@v0.8.8"
 
-      - run: 'pixi install'
-      - run: 'pixi run pnpm ci'
-      - run: 'pixi run pnpm run build'
+      - run: "pixi install"
+      - run: "pixi run pnpm ci"
+      - run: "pixi run pnpm run build"
       # - run: "pixi run pnpm test"
-      - run: 'pixi run pnpm publish --no-git-checks'
+      - run: "pixi run pnpm publish --no-git-checks"
