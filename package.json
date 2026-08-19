@@ -17,7 +17,7 @@
     "proj-codes.json"
   ],
   "scripts": {
-    "build": "python generate.py",
+    "build": "python generate.py && tsc",
     "test": "node --test"
   },
   "keywords": [],
@@ -29,5 +29,8 @@
       "version": "^11.20.0",
       "onFail": "download"
     }
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2"
   }
 }
