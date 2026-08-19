@@ -23,11 +23,18 @@ def build_crs_dict() -> dict[str, dict[str, str]]:
             proj4string = CRS.from_authority(crs.auth_name, crs.code).to_proj4()
         except CRSError:
             continue  # skips codes that can't be used in proj4js
-        crs_dict[f"{crs.auth_name}:{crs.code}"] = {
+        crs_id = f"{crs.auth_name}:{crs.code}"
+        crs_dict[crs_id] = {
             "auth_name": crs.auth_name,
             "code": crs.code,
             "name": crs.name,
             "proj4string": proj4string,
+            "area_of_use": (
+                crs.area_of_use.west,
+                crs.area_of_use.south,
+                crs.area_of_use.east,
+                crs.area_of_use.north,
+            ),
         }
     return crs_dict
 
