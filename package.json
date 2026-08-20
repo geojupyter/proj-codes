@@ -17,7 +17,7 @@
     "proj-codes.json"
   ],
   "scripts": {
-    "build": "python generate.py && tsc",
+    "build": "python generate.py && tsc && cp -R src/_generated dist/_generated",
     "test": "node --test"
   },
   "keywords": [],

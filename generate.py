@@ -8,7 +8,7 @@ from pyproj import CRS
 from pyproj.database import query_crs_info
 from pyproj.exceptions import CRSError
 
-out_dir = Path("dist")
+out_dir = Path("src") / "_generated"
 
 
 def build_crs_dict() -> dict[str, dict[str, str]]:

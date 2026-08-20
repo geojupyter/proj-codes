@@ -1,4 +1,4 @@
-import projCodesJson from "./proj-codes.json" with { type: "json" };
+import projCodesJson from "./_generated/proj-codes.json" with { type: "json" };
 
 export interface IProjInfo {
   auth_name: string;
