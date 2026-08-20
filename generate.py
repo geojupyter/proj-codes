@@ -8,7 +8,6 @@ from pyproj import CRS
 from pyproj.database import query_crs_info
 from pyproj.exceptions import CRSError
 
-
 out_dir = Path("dist")
 
 
