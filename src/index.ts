@@ -5,7 +5,6 @@ export interface IProjInfo {
   code: string;
   name: string;
   proj4string: string;
-  area_of_use: [number, number, number, number];
 }
 
 const projCodes: Record<string, IProjInfo> = projCodesJson;
