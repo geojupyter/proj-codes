@@ -21,6 +21,6 @@ jobs:
 
       - run: "pixi install"
 
-      - run: "pixi run pnpm run build"
+      - run: "pixi run build"
 
-      - run: "pixi run pnpm test"
+      - run: "pixi run test"
