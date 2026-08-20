@@ -13,11 +13,6 @@ test("EPSG:4326 matches expected", () => {
     code: "4326",
     name: "WGS 84",
     proj4string: "+proj=longlat +datum=WGS84 +no_defs +type=crs",
-    "area_of_use": [
-    -180.0,
-    -90.0,
-    180.0,
-    90.0
-  ],
+    area_of_use: [-180.0, -90.0, 180.0, 90.0],
   });
 });
