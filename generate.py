@@ -31,6 +31,12 @@ def build_crs_dict() -> dict[str, dict[str, str]]:
             "code": crs.code,
             "name": crs.name,
             "proj4string": proj4string,
+            "area_of_use": (
+                crs.area_of_use.west,
+                crs.area_of_use.south,
+                crs.area_of_use.east,
+                crs.area_of_use.north,
+            ),
         }
     return crs_dict
 
