@@ -8,6 +8,8 @@ from pyproj import CRS
 from pyproj.database import query_crs_info
 from pyproj.exceptions import CRSError
 
+out_dir = Path("src") / "_generated"
+
 
 def build_crs_dict() -> dict[str, dict[str, str]]:
     """Build the CRS dictionary."""
@@ -43,7 +45,9 @@ def main() -> None:
     """Write the CRS dictionary to disk."""
     crs_dict = build_crs_dict()
 
-    with Path("proj-codes.json").open("w") as f:
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    with (out_dir / "proj-codes.json").open("w") as f:
         json.dump(crs_dict, f)
 
     with Path("proj-codes.csv").open("w", newline="") as f:

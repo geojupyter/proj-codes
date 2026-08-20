@@ -7,6 +7,7 @@ version = "0.1.0"
 
 [tasks]
 build = "pnpm run build"
+test = "pnpm run test"
 
 [dependencies]
 python = ">=3.14.6,<3.15"

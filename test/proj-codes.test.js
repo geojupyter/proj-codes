@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 
-import projCodes from "../index.js";
+import projCodes from "../dist/index.js";
 
 test("generated artifact contains the expected number of CRS codes", () => {
   assert.equal(Object.keys(projCodes).length, 6990);

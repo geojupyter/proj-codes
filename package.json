@@ -7,17 +7,18 @@
     "url": "https://github.com/geojupyter/proj-codes"
   },
   "type": "module",
-  "main": "./index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
-    ".": "./index.js",
-    "./proj-codes.json": "./proj-codes.json"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./proj-codes.json": "./dist/_generated/proj-codes.json"
   },
-  "files": [
-    "index.js",
-    "proj-codes.json"
-  ],
+  "files": ["dist"],
   "scripts": {
-    "build": "python generate.py",
+    "build": "python generate.py && tsc && cp -R src/_generated dist/_generated",
     "test": "node --test"
   },
   "keywords": [],
@@ -29,5 +30,8 @@
       "version": "^11.20.0",
       "onFail": "download"
     }
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2"
   }
 }

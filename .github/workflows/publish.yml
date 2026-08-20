@@ -22,6 +22,6 @@ jobs:
 
       - run: "pixi install"
       - run: "pixi run pnpm ci"
-      - run: "pixi run pnpm run build"
-      # - run: "pixi run pnpm test"
+      - run: "pixi run build"
+      - run: "pixi run test"
       - run: "pixi run pnpm publish --no-git-checks"
