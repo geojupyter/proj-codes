@@ -8,7 +8,7 @@ export interface IProjInfo {
   area_of_interest: [number, number, number, number];
 }
 
-const projCodes: Record<string, IProjCode> = projCodesJson;
+const projCodes: Record<string, IProjInfo> = projCodesJson;
 
 export {projCodes};
 export default projCodes;
