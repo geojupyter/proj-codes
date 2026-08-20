@@ -1,6 +1,6 @@
 {
   "name": "proj-codes",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "repository": {
     "type": "git",
@@ -16,7 +16,9 @@
     },
     "./proj-codes.json": "./dist/_generated/proj-codes.json"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "python generate.py && tsc && cp -R src/_generated dist/_generated",
     "test": "node --test"
