@@ -20,7 +20,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "python generate.py && tsc && cp -R src/_generated dist/_generated",
+    "build": "python generate.py && tsc",
     "test": "node --test"
   },
   "keywords": [],
