@@ -1,6 +1,6 @@
 {
   "name": "proj-codes",
-  "version": "0.0.3",
+  "version": "0.0.0-placeholder-this-is-calculated-from-git-tag-in-publish-workflow",
   "description": "",
   "repository": {
     "type": "git",

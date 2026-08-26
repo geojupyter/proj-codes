@@ -24,4 +24,8 @@ jobs:
       - run: "pixi run pnpm ci"
       - run: "pixi run build"
       - run: "pixi run test"
-      - run: "pixi run pnpm publish --no-git-checks"
+      - name: "Set version from release tag"
+        env:
+          TAG: "${{ github.event.release.tag_name }}"
+        run: 'pixi run pnpm pkg set version="${TAG}"'
+      - run: "pixi run pnpm publish --no-git-checks --provenance"
